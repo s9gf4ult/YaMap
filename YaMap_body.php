@@ -39,7 +39,7 @@ class YaMap extends SpecialPage {
 				$code = file_get_contents($dir . 'js/yamap.js');
 $out = <<<EOD
 <div id="yandex_map_element"></div>
-<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"> </script>
+<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"> </script>
 <script type="text/javascript">
 /// variables inserted from the query parameters
 var yAction = "$action";
