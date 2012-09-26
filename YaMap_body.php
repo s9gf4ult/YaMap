@@ -8,7 +8,6 @@ class YaMap extends SpecialPage {
         function execute( $par ) {
                 global $wgRequest, $wgOut;
                 $this->setHeaders();
-				
 				$action = $wgRequest->getVal("action");
 				if (! in_array($action, Array("baloon", "path"))) {
 					$action = "baloon";
@@ -48,6 +47,10 @@ var yPoint2 = $p2;
 $code
 </script>
 EOD;
+				$target = $wgRequest->getVal('target');
+				if (!empty($target)) {
+					$wgOut->addWikiText("=== Как добраться до: $target ===");
+				}
 				$wgOut->addHTML($out);
         }
 }

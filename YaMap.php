@@ -19,6 +19,6 @@ $wgExtensionCredits['specialpage'][] = array(
 $dir = dirname(__FILE__) . '/';
  
 $wgAutoloadClasses['YaMap'] = $dir . 'YaMap_body.php';
-# $wgExtensionMessagesFiles['MyExtension'] = $dir . 'MyExtension.i18n.php';
+$wgExtensionMessagesFiles['YaMap'] = $dir . 'YaMap.i18n.php';
 # $wgExtensionAliasesFiles['MyExtension'] = $dir . 'MyExtension.alias.php';
 $wgSpecialPages['YaMap'] = 'YaMap';
