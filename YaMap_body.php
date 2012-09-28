@@ -36,10 +36,10 @@ class YaMap extends SpecialPage {
                 $mobile = mobiledetect() ? 'true' : 'false';
                 if (mobiledetect()) {
                 $buttons = <<<EOD
-<button onclick="leftclicked();">Лево</button>
-<button onclick="rightclicked();">Право</button>
-<button onclick="upclicked();">Верх</button>
-<button onclick="downclicked();">Низ</button>
+<button class="arrow_button leftright_button" onclick="leftclicked();"><div>&larr;</div></button>
+<button class="arrow_button leftright_button" onclick="rightclicked();"><div>&rarr;</div></button>
+<button class="arrow_button updown_button" onclick="upclicked();"><div>&uarr;</div></button>
+<button class="arrow_button updown_button" onclick="downclicked();"><div>&darr;</div></button>
 EOD;
                 } else {
                     $buttons = "";
