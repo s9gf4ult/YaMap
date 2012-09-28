@@ -33,10 +33,21 @@ class YaMap extends SpecialPage {
 				} else {
 					$p2 = "{lat : $plat, lon : $plon}";
 				}
-				
+                $mobile = mobiledetect() ? 'true' : 'false';
+                if (mobiledetect()) {
+                $buttons = <<<EOD
+<button onclick="leftclicked();">Лево</button>
+<button onclick="rightclicked();">Право</button>
+<button onclick="upclicked();">Верх</button>
+<button onclick="downclicked();">Низ</button>
+EOD;
+                } else {
+                    $buttons = "";
+                }
 				$dir = dirname(__FILE__) . '/';
 				$code = file_get_contents($dir . 'js/yamap.js');
 $out = <<<EOD
+$buttons
 <div id="yandex_map_element"></div>
 <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"> </script>
 <script type="text/javascript">
@@ -44,6 +55,7 @@ $out = <<<EOD
 var yAction = "$action";
 var yPoint1 = $p1;
 var yPoint2 = $p2;
+var yMobile = $mobile;
 $code
 </script>
 EOD;
@@ -51,6 +63,6 @@ EOD;
 				if (!empty($target)) {
 					$wgOut->addWikiText("=== Как добраться до: $target ===");
 				}
-				$wgOut->addHTML($out);
+				$wgOut->addHTML($out); # This is quick and dirty way
         }
 }
